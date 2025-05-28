@@ -12,5 +12,9 @@ export default async function PrivatePage() {
 
   console.log('User data:', data.user)
 
-  return <p>Hello {data.user.email}</p>
+  return (
+    <div className='flex justify-center items-center'>
+      <h1 className='text-white text-3xl font-bold'>Hello {data.user.email}</h1>
+    </div>
+  )
 }

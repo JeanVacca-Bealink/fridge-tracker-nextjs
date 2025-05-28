@@ -5,7 +5,9 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
 
-export async function login(formData: FormData) {
+export async function login(peveState:  {
+    message: string;
+}, formData: FormData) {
   const supabase = await createClient()
 
   // type-casting here for convenience
@@ -18,14 +20,17 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data)
 
   if (error) {
-    redirect('/error')
+    return { message: error.message }
+    //redirect('/error')
   }
 
   revalidatePath('/', 'layout')
   redirect('/app/dashboard')
 }
 
-export async function signup(formData: FormData) {
+export async function signup(peveState:  {
+    message: string;
+}, formData: FormData) {
   const supabase = await createClient()
 
   // type-casting here for convenience
@@ -40,7 +45,8 @@ export async function signup(formData: FormData) {
   console.log('Signup result:', data.user)
 
   if (error) {
-    redirect('/error')
+    return { message: error.message }
+    //redirect('/error')
   }
 
   revalidatePath('/', 'layout')
