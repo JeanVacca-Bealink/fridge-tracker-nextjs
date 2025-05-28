@@ -45,7 +45,7 @@ export default function FridgeFormModal() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium">Date d'expiration</label>
+                <label className="block text-sm font-medium">Date d&quote;expiration</label>
                 <input
                   type="date"
                   name="expirationDate"
@@ -55,7 +55,7 @@ export default function FridgeFormModal() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium">Date d'ouverture</label>
+                <label className="block text-sm font-medium">Date d&quote;ouverture</label>
                 <input
                   type="date"
                   name="openingDate"
