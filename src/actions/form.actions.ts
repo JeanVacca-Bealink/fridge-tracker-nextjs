@@ -14,10 +14,13 @@ export async function addItem(formData: FormData) {
     redirect('/login')
   }
 
+  const open_date =  formData.get('openDate') as string;
+  const expiration_date = formData.get('expirationDate') as string;
+
   const result = await supabase.from('fridge_content').insert({
     description: formData.get('description') as string,
-    // expiration_date: formData.get('expirationDate') as string,
-    // open_date: formData.get('openingDate') as string,
+    expiration_date: expiration_date ? new Date(expiration_date) : null,
+    open_date: open_date ? new Date(open_date) : null,
     //picture: formData.get('photo') as File | null,
     user_id : data.user.id
     });
