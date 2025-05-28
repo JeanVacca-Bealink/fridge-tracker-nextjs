@@ -1,5 +1,6 @@
 'use client';
 
+import { addItem } from '@/actions/form.actions';
 import { useState } from 'react';
 
 export default function FridgeFormModal() {
@@ -45,21 +46,18 @@ export default function FridgeFormModal() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium">Date d&quote;expiration</label>
+                <label className="block text-sm font-medium">{ "Date d'expiration" }</label>
                 <input
                   type="date"
                   name="expirationDate"
-  
                   className="w-full p-2 border rounded"
-                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium">Date d&quote;ouverture</label>
+                <label className="block text-sm font-medium">{ "Date d'ouverture" }</label>
                 <input
                   type="date"
                   name="openingDate"
-  
                   className="w-full p-2 border rounded"
                 />
               </div>
@@ -82,6 +80,7 @@ export default function FridgeFormModal() {
                   Annuler
                 </button>
                 <button
+                  formAction={addItem}
                   type="submit"
                   className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                 >

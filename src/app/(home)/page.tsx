@@ -15,9 +15,12 @@ export default function Home() {
         <p className="text-center text-lg mt-2">
           Keep track of your fridge items and never let food go to waste!
         </p>
-        <Link href="/login" className="mt-5 bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700 transition-all duration-300">
+        <div className="mt-4 flex justify-center items-center">
+<Link href="/login" className="mt-5 bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700 transition-all duration-300">
             Get Started
         </Link>
+        </div>
+        
       </div>
     </div>
   );
