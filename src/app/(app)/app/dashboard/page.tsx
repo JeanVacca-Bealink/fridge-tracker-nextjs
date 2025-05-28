@@ -5,9 +5,9 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBox, faSync, faBoxOpen } from '@fortawesome/free-solid-svg-icons'
 import {  } from "@fortawesome/free-regular-svg-icons"
-function getDateDiff(date: any) {
-  var today = new Date();
-  var diff = new Date(date as string).getTime() - today.getTime();
+function getDateDiff(date: string) : number {
+  const today = new Date();
+  const diff = new Date(date as string).getTime() - today.getTime();
 
   console.log("Diff in ms:", diff);
   return Math.ceil(diff / (1000 * 3600 * 24)); // Convert milliseconds to days
@@ -48,7 +48,7 @@ async function Dashboard() {
                       </button>
                     )}
                   </span>
-                  <span className={`text-sm border-l-1 pl-2 border-r-1 pr-2 ${getDateDiff(todo.expiration_date) < 2  ? "text-red-500" : getDateDiff(todo.expiration_date) < 10 ? 'text-orange-300' : 'text-gray-500'}`}>
+                  <span className={`text-sm border-l-1 pl-2 border-r-1 pr-2 ${getDateDiff(todo.expiration_date as string) < 2  ? "text-red-500" : getDateDiff(todo.expiration_date as string) < 10 ? 'text-orange-300' : 'text-gray-500'}`}>
                     {todo.expiration_date
                       ? new Date(todo.expiration_date).toLocaleDateString()
                       : "No expiration date"}
